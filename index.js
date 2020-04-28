@@ -1,5 +1,5 @@
 const GeohashService = require('./services/GeohashService');
-const bboxPolygon = require('@turf/bbox-polygon');
+const {default: bboxPolygon} = require('@turf/bbox-polygon');
 
 /**
  * @typedef {string[]} ParentGeohashList
@@ -20,8 +20,8 @@ class ParentFinder {
 
   /**
    * Creates an instance of ParentFinder.
-   * @param {number} parentPrecision
-   * @param {OptimizationOptions} [optimization]
+   * @param {number} parentPrecision Initial parent precision
+   * @param {OptimizationOptions} [optimization] If desired, specify optimization options
    * @memberof ParentFinder
    */
   constructor(parentPrecision, optimization) {
@@ -32,7 +32,7 @@ class ParentFinder {
   /**
    * Finds common parents from array of points
    *
-   * @param {number[][]} points [lon, lat]
+   * @param {Array.<number[]>} points [lon, lat]
    * @returns {ParentGeohashList} Array of geohashes
    * @memberof ParentFinder
    */
@@ -51,8 +51,8 @@ class ParentFinder {
   /**
    * Finds common parents from array of geohashes
    *
-   * @param {string[]} hashes
-   * @returns {ParentGeohashList}
+   * @param {string[]} hashes List of geohashes
+   * @returns {ParentGeohashList} List of parent geohashes
    * @memberof ParentFinder
    */
   fromGeohashes(hashes) {
@@ -71,7 +71,7 @@ class ParentFinder {
    * Finds common parents from bounding box
    *
    * @param {number[]} bbox [number, number, number, number]
-   * @returns {Promise<ParentGeohashList>}
+   * @returns {Promise<ParentGeohashList>} Promise of list of parent geohashes
    * @memberof ParentFinder
    */
   fromBBox(bbox) {
@@ -82,8 +82,8 @@ class ParentFinder {
   /**
    * Finds common parents from polygon feature
    *
-   * @param {object} inputPolygon
-   * @returns {Promise<ParentGeohashList>}
+   * @param {object} inputPolygon GeoJSON shape
+   * @returns {Promise<ParentGeohashList>} Promise of list of parent geohashes
    * @memberof ParentFinder
    */
   async fromPolygon(inputPolygon) {
@@ -98,10 +98,10 @@ class ParentFinder {
    * Checks if the response meets the optimization criteria
    *
    * @private
-   * @param {string[]} parents
-   * @param {string} method
-   * @param {*} input
-   * @returns {(ParentGeohashList|Promise<ParentGeohashList>)}
+   * @param {string[]} parents Parents list
+   * @param {string} method Class method used before
+   * @param {*} input The input param for the method
+   * @returns {(ParentGeohashList|Promise<ParentGeohashList>)} Method response
    * @memberof ParentFinder
    */
   checkResultOptimization(parents, method, input) {

@@ -239,7 +239,7 @@
     "template-curly-spacing": ["error", "never"],
     "template-tag-spacing": "error",
     "unicode-bom": ["error", "never"],
-    "valid-jsdoc": "off",
+    "valid-jsdoc": "error",
     "vars-on-top": "off",
     "wrap-iife": "error",
     "wrap-regex": "error",

@@ -12,10 +12,10 @@ class GeohashService {
    * Encodes a geohash
    *
    * @static
-   * @param {number} lat
-   * @param {number} lon
-   * @param {number} precision
-   * @returns {string}
+   * @param {number} lat Latitude
+   * @param {number} lon Longitude
+   * @param {number} precision Desired geohash length
+   * @returns {string} Encoded geohash
    * @memberof GeohashService
    */
   static encodeHash(lat, lon, precision) {
@@ -26,9 +26,9 @@ class GeohashService {
    * Finds list of geohashes inside shape
    *
    * @static
-   * @param {object} inputPolygon
-   * @param {number} precision
-   * @returns {Promise<string[]>}
+   * @param {object} inputPolygon The GeoJSON input
+   * @param {number} precision Desired geohash length
+   * @returns {Promise<string[]>} Promise with list of geohashes inside
    * @memberof GeohashService
    */
   static findHashesInside(inputPolygon, precision) {
