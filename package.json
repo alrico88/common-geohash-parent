@@ -1,0 +1,32 @@
+{
+  "name": "common-geohash-parent",
+  "version": "0.1.0",
+  "description": "Functions to get common geohash parent(s) of coordinates or bbox",
+  "main": "index.js",
+  "author": "Alberto Rico",
+  "keywords": [
+    "geohash",
+    "parent",
+    "geojson"
+  ],
+  "repository": {
+    "url": "https://github.com/alrico88/common-geohash-parent"
+  },
+  "homepage": "https://github.com/alrico88/common-geohash-parent",
+  "license": "MIT",
+  "dependencies": {
+    "@turf/bbox-polygon": "^6.0.1",
+    "ngeohash": "^0.6.3",
+    "shape2geohash": "^1.2.5",
+    "stream": "^0.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.4",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.4.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "prepublish": "yarn test"
+  }
+}
